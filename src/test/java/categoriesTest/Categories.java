@@ -1,6 +1,5 @@
 package categoriesTest;
 
-import dataGenrator.BusinessPartnerGenerator;
 import dataGenrator.CategoriesGenerator;
 import org.testng.annotations.Test;
 import pageobjects.AdminDashboard;
