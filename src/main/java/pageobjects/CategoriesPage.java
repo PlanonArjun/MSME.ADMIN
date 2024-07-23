@@ -9,7 +9,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CategoriesPage {
@@ -68,6 +67,12 @@ public class CategoriesPage {
 
 	@FindBy(xpath = "//*[@type='reset' and text()=' Cancel']")
 	private WebElement subCategoryCancelBtn;
+
+	@FindBy(xpath = "//span[@class='icon check']")
+	private WebElement categorySaveBtn;
+
+	@FindBy(xpath = "//button[@type='reset']")
+	private WebElement categoryCancelBtn;
 
 	public CategoriesPage(WebDriver driver) {
 		this.driver = driver;
@@ -128,5 +133,11 @@ public class CategoriesPage {
 
 		wait.until(ExpectedConditions.visibilityOfAllElements(subCategoryOkBtn));
 		subCategoryOkBtn.click();
+
+		wait.until(ExpectedConditions.invisibilityOfAllElements(subCategoryOkBtn));
+		wait.until(ExpectedConditions.visibilityOfAllElements(categorySaveBtn));
+		categorySaveBtn.click();
+
+
 	}
 }
