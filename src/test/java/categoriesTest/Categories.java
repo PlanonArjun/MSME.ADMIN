@@ -13,7 +13,7 @@ public class Categories extends BaseClass {
         System.out.println("Category page loaded successfully");
         AdminDashboard ad = new AdminDashboard(driver);
         ad.clickOnMasterDataCategories();
-        ad.clickOnCategories();
+
         CategoriesPage cP = new CategoriesPage(driver);
         cP.clickOnaddIcon();
         cP.addCategoryDetails(driver, CategoriesGenerator.categoryDetails);

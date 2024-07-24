@@ -31,6 +31,9 @@ public class AdminDashboard {
 	@FindBy(xpath = "//a[contains(text(),'Categories')]")
 	private WebElement CategoriesLnk;
 
+	@FindBy(xpath = "//a[contains(text(),'Product or Services')]")
+	private WebElement ProductServicesLnk;
+
 	public AdminDashboard(WebDriver driver) {
 		this.driver = driver;
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Set the wait timeout to 10 seconds
@@ -40,23 +43,33 @@ public class AdminDashboard {
 
 	//Master Data Section.
 	public void clickOnMasterDataCategories() {
+		//side Menu
 		wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@href='/category']//parent::div")));
 
 		WebdriverActionsUtilties.WebDriverUtility.mouseHoverAction(driver, masterData);
 		wait.until(ExpectedConditions.visibilityOfAllElements(masterDataCategory));
 		masterDataCategory.click();
-	}
-
-	//Master Data Section.
-	public void clickOnCategories() {
-		wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@href='/category']//parent::div")));
 
 		WebdriverActionsUtilties.WebDriverUtility.mouseHoverAction(driver, masterData);
 		wait.until(ExpectedConditions.visibilityOfAllElements(CategoriesLnk));
 		CategoriesLnk.click();
 	}
+
+	public void clickOnMasterDataProductsServices() {
+		wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@href='/category']//parent::div")));
+
+		WebdriverActionsUtilties.WebDriverUtility.mouseHoverAction(driver, masterData);
+		wait.until(ExpectedConditions.visibilityOfAllElements(masterDataCategory));
+		masterDataCategory.click();
+
+		WebdriverActionsUtilties.WebDriverUtility.mouseHoverAction(driver, masterData);
+		wait.until(ExpectedConditions.visibilityOfAllElements(ProductServicesLnk));
+		ProductServicesLnk.click();
+	}
+
+
 	
 
 }

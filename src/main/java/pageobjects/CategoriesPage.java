@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CategoriesPage {
@@ -118,7 +119,10 @@ public class CategoriesPage {
 		js.executeScript("return document.readyState").toString().equals("complete");
 		wait.until(ExpectedConditions.invisibilityOfAllElements(dropdownSpinner));
 
+		wait.until(ExpectedConditions.visibilityOfAllElements(categoryCodeTxt));
 		categoryCodeTxt.sendKeys(categoryCode);
+
+		wait.until(ExpectedConditions.visibilityOfAllElements(categoryNameTxt));
 		categoryNameTxt.sendKeys(categoryName);
 
 		wait.until(ExpectedConditions.elementToBeClickable(subCategoryAddIcon));
@@ -130,14 +134,12 @@ public class CategoriesPage {
 		wait.until(ExpectedConditions.visibilityOfAllElements(subCategoryNameTxt));
 		subCategoryNameTxt.sendKeys(subCategoryName);
 
-
 		wait.until(ExpectedConditions.visibilityOfAllElements(subCategoryOkBtn));
 		subCategoryOkBtn.click();
 
 		wait.until(ExpectedConditions.invisibilityOfAllElements(subCategoryOkBtn));
 		wait.until(ExpectedConditions.visibilityOfAllElements(categorySaveBtn));
 		categorySaveBtn.click();
-
 
 	}
 }
