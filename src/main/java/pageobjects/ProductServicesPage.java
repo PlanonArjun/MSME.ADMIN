@@ -1,5 +1,6 @@
 package pageobjects;
 
+import WebdriverActionsUtilties.WebDriverUtility;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -154,6 +155,21 @@ public class ProductServicesPage {
         String location = productDetails.get("location");//drp
         String sellingPrice = productDetails.get("sellingPrice");
         String map = productDetails.get("map");
+
+        js.executeScript("return document.readyState").toString().equals("complete");
+        wait.until(ExpectedConditions.invisibilityOfAllElements(dropdownSpinner));
+
+        wait.until(ExpectedConditions.visibilityOf(typeDrp));
+        WebDriverUtility.handleDropDown("Product", typeDrp);
+
+        wait.until(ExpectedConditions.elementToBeClickable(externalRawMaterialCheckbox));
+        externalRawMaterialCheckbox.click();
+
+        wait.until(ExpectedConditions.visibilityOf(productCodeTxt));
+        productCodeTxt .sendKeys(code);
+
+
+
 
 
 
