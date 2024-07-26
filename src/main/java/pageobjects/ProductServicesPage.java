@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Map;
 
 public class ProductServicesPage {
     private WebDriver driver;
@@ -101,6 +102,7 @@ public class ProductServicesPage {
     @FindBy(xpath = "//*[@type='button' and text()=' Cancel']")
     private WebElement uomPageCancelBtn;
 
+    //
     @FindBy(xpath = "//button[text()='Cancel']")
     private WebElement cancelBtn;
 
@@ -139,4 +141,16 @@ public class ProductServicesPage {
         wait.until(ExpectedConditions.invisibilityOf(kenduGridLoader));
         wait.until(ExpectedConditions.elementToBeClickable(exportToExcelIcon)).click();
     }
+
+    public void addProductServicesDetails(WebDriver driver, Map<String, String> productDetails){
+
+        String code = productDetails.get("code");
+        String name = productDetails.get("name");
+        String category = productDetails.get("category");
+        String subCategory = productDetails.get("subCategory");
+        String description = productDetails.get("description");
+
+    }
+
+
 }
