@@ -144,11 +144,18 @@ public class ProductServicesPage {
 
     public void addProductServicesDetails(WebDriver driver, Map<String, String> productDetails){
 
+        String type = productDetails.get("type");//drp
         String code = productDetails.get("code");
         String name = productDetails.get("name");
-        String category = productDetails.get("category");
-        String subCategory = productDetails.get("subCategory");
+        String category = productDetails.get("category");//drp
+        String subCategory = productDetails.get("subCategory");//drp
         String description = productDetails.get("description");
+        String umo = productDetails.get("umo");//drp
+        String location = productDetails.get("location");//drp
+        String sellingPrice = productDetails.get("sellingPrice");
+        String map = productDetails.get("map");
+
+
 
     }
 
