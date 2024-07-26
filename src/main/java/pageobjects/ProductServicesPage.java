@@ -4,10 +4,11 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import javax.xml.xpath.XPath;
-import java.security.PrivateKey;
+import java.time.Duration;
 
 public class ProductServicesPage {
     private WebDriver driver;
@@ -105,4 +106,37 @@ public class ProductServicesPage {
 
     @FindBy(xpath = "//button[@type=\"button\" and text()=' Save']")
     private WebElement saveBtn;
+
+    public ProductServicesPage(WebDriver driver) {
+        this.driver = driver;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Set the wait timeout to 10 seconds
+        js = (JavascriptExecutor) driver;
+        PageFactory.initElements(driver, this);
+    }
+    public void clickOnAddIcon() {
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.invisibilityOf(kenduGridLoader));
+        wait.until(ExpectedConditions.elementToBeClickable(addIcon)).click();
+    }
+
+    public void clickOnEditIcon() {
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.invisibilityOf(kenduGridLoader));
+        wait.until(ExpectedConditions.elementToBeClickable(editIcon)).click();
+    }
+
+    public void clickOnDeleteIcon() {
+        wait.until(ExpectedConditions.invisibilityOf(kenduGridLoader));
+        wait.until(ExpectedConditions.elementToBeClickable(deleteIcon)).click();
+    }
+
+    public void clickOnActiveInactiveIcon() {
+        wait.until(ExpectedConditions.invisibilityOf(kenduGridLoader));
+        wait.until(ExpectedConditions.elementToBeClickable(activeInactiveIcon)).click();
+    }
+
+    public void clickOnExportToExcelIcon() {
+        wait.until(ExpectedConditions.invisibilityOf(kenduGridLoader));
+        wait.until(ExpectedConditions.elementToBeClickable(exportToExcelIcon)).click();
+    }
 }

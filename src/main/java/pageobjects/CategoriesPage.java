@@ -82,7 +82,7 @@ public class CategoriesPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void clickOnaddIcon() {
+	public void clickOnAddIcon() {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.invisibilityOf(kenduGridLoader));
 		wait.until(ExpectedConditions.elementToBeClickable(addIcon)).click();
