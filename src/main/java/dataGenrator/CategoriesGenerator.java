@@ -2,7 +2,6 @@ package dataGenrator;
 
 import com.github.javafaker.Faker;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
